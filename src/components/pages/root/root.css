@@ -16,4 +16,6 @@ header {
 }
 
 .rabo-root__form-container {
+  display: flex;
+  justify-content: center;
 }

@@ -11,10 +11,14 @@
 :root {
   --main-color: #19197c;
   --accent-color: #fd6400;
+  --placeholder-color: #cfcfcf;
 
   --heading-title-font-size: 1.4rem;
+  --heading-subtitle-font-size: 1.2rem;
+  --heading-label-font-size: 1rem;
 
   --main-font-family: 'Ubuntu', sans-serif;
+  --fast-ease-out: .3s ease-out;
 }
 
 body {

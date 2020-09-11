@@ -9,8 +9,8 @@ export class Form {
 
   render() {
     return (
-      <div>
-        Hello world!
+      <div class="rabo-form">
+        <rabo-money-input></rabo-money-input>
       </div>
     );
   }
