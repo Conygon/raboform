@@ -23,12 +23,16 @@
   opacity: 1;
   background-color: var(--accent-color);
 
-  transition: width var(--fast-ease-out), left var(--fast-ease-out);
+  transition: width var(--fast-ease-out), left var(--fast-ease-out), background-color var(--fast-ease-out);
 }
 
 .money-input__header--active span:after {
   width: 100%;
   left: 0;
+}
+
+.money-input__header--valid span:after {
+  background-color: var(--valid-color);
 }
 
 .money-input__euro-sign {

@@ -1,4 +1,4 @@
-export class HelperService {
+export class NumericKeyInputService {
 
   /*
       This is an example from: https://codeburst.io/digit-only-directive-in-angular-3db8a94d80c3
