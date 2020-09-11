@@ -10,7 +10,15 @@ describe('rabo-root', () => {
     expect(page.root).toEqualHtml(`
       <rabo-root>
         <mock:shadow-root>
-          <slot></slot>
+          <div>
+            <header>
+              <div class="rabo-root__header">Raboform</div>
+            </header>
+
+            <div class="rabo-root__form-container">
+              <rabo-form></rabo-form>
+            </div>
+          </div>
         </mock:shadow-root>
       </rabo-root>
     `);

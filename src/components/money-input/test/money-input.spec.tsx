@@ -9,9 +9,6 @@ describe('money-input', () => {
     });
     expect(page.root).toEqualHtml(`
       <money-input>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
       </money-input>
     `);
   });

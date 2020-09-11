@@ -7,8 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MoneyInputAmount } from "./core/interfaces/money-input.interface";
 export namespace Components {
-    interface MoneyInput2 {
-    }
     interface RaboForm {
     }
     interface RaboMoneyInput {
@@ -17,12 +15,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMoneyInput2Element extends Components.MoneyInput2, HTMLStencilElement {
-    }
-    var HTMLMoneyInput2Element: {
-        prototype: HTMLMoneyInput2Element;
-        new (): HTMLMoneyInput2Element;
-    };
     interface HTMLRaboFormElement extends Components.RaboForm, HTMLStencilElement {
     }
     var HTMLRaboFormElement: {
@@ -42,15 +34,12 @@ declare global {
         new (): HTMLRaboRootElement;
     };
     interface HTMLElementTagNameMap {
-        "money-input-2": HTMLMoneyInput2Element;
         "rabo-form": HTMLRaboFormElement;
         "rabo-money-input": HTMLRaboMoneyInputElement;
         "rabo-root": HTMLRaboRootElement;
     }
 }
 declare namespace LocalJSX {
-    interface MoneyInput2 {
-    }
     interface RaboForm {
     }
     interface RaboMoneyInput {
@@ -59,7 +48,6 @@ declare namespace LocalJSX {
     interface RaboRoot {
     }
     interface IntrinsicElements {
-        "money-input-2": MoneyInput2;
         "rabo-form": RaboForm;
         "rabo-money-input": RaboMoneyInput;
         "rabo-root": RaboRoot;
@@ -69,7 +57,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "money-input-2": LocalJSX.MoneyInput2 & JSXBase.HTMLAttributes<HTMLMoneyInput2Element>;
             "rabo-form": LocalJSX.RaboForm & JSXBase.HTMLAttributes<HTMLRaboFormElement>;
             "rabo-money-input": LocalJSX.RaboMoneyInput & JSXBase.HTMLAttributes<HTMLRaboMoneyInputElement>;
             "rabo-root": LocalJSX.RaboRoot & JSXBase.HTMLAttributes<HTMLRaboRootElement>;
