@@ -22,7 +22,7 @@ export class MoneyInput {
   @State() isValueValid: boolean;
   @State() moneyValue: number;
 
-  @Event() changed: EventEmitter<MoneyInputAmount>;
+  @Event() moneyInputChanged: EventEmitter<MoneyInputAmount>;
 
   @Listen('mouseover')
   onMouseOver() {
@@ -65,7 +65,7 @@ export class MoneyInput {
 
     this.moneyValue = parseFloat(tmpMoneyValue);
 
-    this.changed.emit({
+    this.moneyInputChanged.emit({
       value: this.moneyValue,
       valid: this.isValueValid
     })

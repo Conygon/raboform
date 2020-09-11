@@ -20,6 +20,7 @@
   text-align: center;
   padding: .3em 1em;
   cursor: pointer;
+  outline:none;
 }
 
 .rabo-form__submit-button:hover:enabled {

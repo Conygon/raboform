@@ -54,7 +54,7 @@ declare namespace LocalJSX {
     interface RaboForm {
     }
     interface RaboMoneyInput {
-        "onChanged"?: (event: CustomEvent<MoneyInputAmount>) => void;
+        "onMoneyInputChanged"?: (event: CustomEvent<MoneyInputAmount>) => void;
     }
     interface RaboRoot {
     }
