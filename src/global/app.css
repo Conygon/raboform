@@ -14,11 +14,13 @@
   --accent-color-darker: #fd4800;
   --placeholder-color: #cfcfcf;
   --white-color: white;
-  --valid-color: #00e73a;
+  --valid-color: #00d130;
+  --invalid-color: #dd0016;
 
   --heading-title-font-size: 1.4rem;
   --heading-subtitle-font-size: 1.2rem;
   --heading-label-font-size: 1rem;
+  --label-invalid-value: .6rem;
 
   --main-font-family: 'Ubuntu', sans-serif;
   --fast-ease-out: .3s ease-out;

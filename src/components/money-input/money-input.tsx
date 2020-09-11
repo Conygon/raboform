@@ -1,5 +1,4 @@
 import { Component, Event, h, Listen, State } from '@stencil/core';
-import { NumericKeyInputService } from "../../core/services/numeric-key-input.service";
 import { Validator } from "../../core/interfaces/validator.interface";
 import { MoneyInputValidator } from "../../core/validators/money-input-validator.validator";
 import { MoneyInputAmount } from "../../core/interfaces/money-input.interface";
@@ -12,6 +11,9 @@ import { EventEmitter } from "@stencil/router/dist/types/stencil.core";
 })
 export class MoneyInput {
 
+  private moneyInputLeft: HTMLInputElement;
+  private moneyInputRight: HTMLInputElement;
+  private moneyInputRegExp: RegExp = new RegExp(/[^0-9]/g);
   private moneyValidator: Validator<string> = MoneyInputValidator;
 
   @State() leftValue: string;
@@ -32,8 +34,12 @@ export class MoneyInput {
     this.activeElement = false;
   }
 
-  inputDown(e) {
-    NumericKeyInputService.handleNumericOnlyKeyPress(e);
+  handleBlurRight() {
+    if (this.rightValue.length === 1) {
+      this.rightValue = '0' + this.rightValue;
+
+      this.handleChange();
+    }
   }
 
   handleChangeLeft(event) {
@@ -49,9 +55,10 @@ export class MoneyInput {
   }
 
   handleChange() {
-    //Automatically fills in the other number for ease of use
-    if(!this.rightValue) this.rightValue = '00';
-    if(!this.leftValue) this.leftValue = '0';
+    this.autoCorrectValues();
+
+    this.moneyInputLeft.value = this.leftValue;
+    this.moneyInputRight.value = this.rightValue;
 
     const tmpMoneyValue: string = this.leftValue + '.' + this.rightValue;
     this.isValueValid = this.moneyValidator.validate(this.leftValue + '.' + this.rightValue);
@@ -62,6 +69,19 @@ export class MoneyInput {
       value: this.moneyValue,
       valid: this.isValueValid
     })
+  }
+
+  autoCorrectValues() {
+    //Automatically fills in the other number for ease of use
+    if(!this.rightValue) this.rightValue = '00';
+    if(!this.leftValue) this.leftValue = '0';
+
+    this.rightValue = this.rightValue.replace(this.moneyInputRegExp, '');
+    this.leftValue = this.leftValue.replace(this.moneyInputRegExp, '');
+
+    while(this.leftValue.charAt(0) === '0' && this.leftValue.length > 1) {
+      this.leftValue = this.leftValue.substring(1);
+    }
   }
 
   render() {
@@ -75,18 +95,18 @@ export class MoneyInput {
                type="text"
                placeholder="1000"
                maxlength="6"
-               value={this.leftValue}
-               onKeyDown={(event)=> this.inputDown(event)}
-               onInput={(event) => this.handleChangeLeft(event)}/>
+               onInput={(event) => this.handleChangeLeft(event)}
+               ref={el => this.moneyInputLeft = el as HTMLInputElement}/>
         <span class="money-input__comma-separator">,</span>
         <input class="money-input__field money-input__field__right"
                type="text"
                placeholder="00"
                maxlength="2"
                value={this.rightValue}
-               onKeyDown={(event)=> this.inputDown(event)}
-               onInput={(event) => this.handleChangeRight(event)}/>
-         <span></span>
+               onBlur={() => this.handleBlurRight()}
+               onInput={(event) => this.handleChangeRight(event)}
+               ref={el => this.moneyInputRight = el as HTMLInputElement}/>
+         <div class={'money-input__validation-error ' + ((this.moneyValue && !this.isValueValid) ? 'money-input__validation-error--active' : '' ) }>{ this.moneyValue && !this.isValueValid ? '* ' + this.moneyValidator.errorMessage : ''}</div>
       </div>
     );
   }

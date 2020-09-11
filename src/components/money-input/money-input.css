@@ -74,3 +74,19 @@
   text-align: center;
   width: 25px;
 }
+
+.money-input__validation-error {
+  color: var(--invalid-color);
+  font-size: var(--label-invalid-value);
+  font-style: italic;
+  text-align: right;
+  margin-top: 4px;
+  height: 11px;
+  opacity: 0;
+
+  transition: opacity var(--fast-ease-out);
+}
+
+.money-input__validation-error--active {
+  opacity: 1;
+}
