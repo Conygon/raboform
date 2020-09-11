@@ -1,4 +1,5 @@
 import { Component, h, Listen, State } from '@stencil/core';
+import { HelperService } from "../../core/services/numeric-key-input.service";
 
 @Component({
   tag: 'rabo-money-input',
@@ -22,6 +23,10 @@ export class MoneyInput {
     this.activeElement = false;
   }
 
+  inputDown(e) {
+    HelperService.handleNumericOnlyKeyPress(e);
+  }
+
   render() {
     return (
       <div class="money-input">
@@ -32,13 +37,16 @@ export class MoneyInput {
         <input class="money-input__field money-input__field__left"
                type="text"
                placeholder="1000"
-               value={this.leftValue}/>
+               maxlength="6"
+               value={this.leftValue}
+               onKeyDown={(event)=> this.inputDown(event)}/>
         <span class="money-input__comma-separator">,</span>
         <input class="money-input__field money-input__field__right"
                type="text"
                placeholder="00"
                maxlength="2"
-               value={this.rightValue}/>
+               value={this.rightValue}
+               onKeyDown={(event)=> this.inputDown(event)}/>
       </div>
     );
   }
