@@ -5,62 +5,46 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil/router";
 export namespace Components {
-    interface AppHome {
+    interface RaboForm {
     }
-    interface AppProfile {
-        "match": MatchResults;
-    }
-    interface AppRoot {
+    interface RaboRoot {
     }
 }
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
+    interface HTMLRaboFormElement extends Components.RaboForm, HTMLStencilElement {
     }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
+    var HTMLRaboFormElement: {
+        prototype: HTMLRaboFormElement;
+        new (): HTMLRaboFormElement;
     };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
+    interface HTMLRaboRootElement extends Components.RaboRoot, HTMLStencilElement {
     }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
-    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
-    }
-    var HTMLAppRootElement: {
-        prototype: HTMLAppRootElement;
-        new (): HTMLAppRootElement;
+    var HTMLRaboRootElement: {
+        prototype: HTMLRaboRootElement;
+        new (): HTMLRaboRootElement;
     };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
-        "app-root": HTMLAppRootElement;
+        "rabo-form": HTMLRaboFormElement;
+        "rabo-root": HTMLRaboRootElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
+    interface RaboForm {
     }
-    interface AppProfile {
-        "match"?: MatchResults;
-    }
-    interface AppRoot {
+    interface RaboRoot {
     }
     interface IntrinsicElements {
-        "app-home": AppHome;
-        "app-profile": AppProfile;
-        "app-root": AppRoot;
+        "rabo-form": RaboForm;
+        "rabo-root": RaboRoot;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "rabo-form": LocalJSX.RaboForm & JSXBase.HTMLAttributes<HTMLRaboFormElement>;
+            "rabo-root": LocalJSX.RaboRoot & JSXBase.HTMLAttributes<HTMLRaboRootElement>;
         }
     }
 }

@@ -1,15 +1,19 @@
 header {
-  background: #5851ff;
+  background: var(--main-color);
   color: white;
   height: 56px;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-bottom: 3px solid var(--accent-color);
 }
 
-h1 {
-  font-size: 1.4rem;
+.rabo-root__header {
+  font-size: var(--heading-title-font-size);
   font-weight: 500;
   color: #fff;
   padding: 0 12px;
+}
+
+.rabo-root__form-container {
 }
