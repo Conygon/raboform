@@ -11,7 +11,9 @@
 :root {
   --main-color: #19197c;
   --accent-color: #fd6400;
+  --accent-color-darker: #fd4800;
   --placeholder-color: #cfcfcf;
+  --white-color: white;
 
   --heading-title-font-size: 1.4rem;
   --heading-subtitle-font-size: 1.2rem;

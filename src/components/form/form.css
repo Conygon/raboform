@@ -1,3 +1,33 @@
 .rabo-form {
   padding: 50px 10px;
 }
+
+.rabo-form__submit-button-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.rabo-form__submit-button{
+  font-family: var(--font-family);
+  width: 100px;
+  height: 25px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border: 1px solid var(--accent-color);
+  box-sizing: border-box;
+  border-radius: 7px/50%;
+  text-align: center;
+  padding: .3em 1em;
+  cursor: pointer;
+}
+
+.rabo-form__submit-button:hover:enabled {
+  background-color: var(--accent-color-darker);
+}
+
+.rabo-form__submit-button:disabled {
+  cursor: not-allowed;
+  background-color: var(--placeholder-color);
+  border-color: var(--placeholder-color);
+}
