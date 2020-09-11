@@ -21,6 +21,8 @@
   padding: .3em 1em;
   cursor: pointer;
   outline:none;
+
+  transition: background-color var(--fast-ease-out);
 }
 
 .rabo-form__submit-button:hover:enabled {
@@ -31,4 +33,10 @@
   cursor: not-allowed;
   background-color: var(--placeholder-color);
   border-color: var(--placeholder-color);
+}
+
+.rabo-form__thanks-message {
+  text-align: center;
+  color: var(--valid-color);
+  margin-top: 30px;
 }

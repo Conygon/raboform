@@ -106,7 +106,7 @@ export class MoneyInput {
                onBlur={() => this.handleBlurRight()}
                onInput={(event) => this.handleChangeRight(event)}
                ref={el => this.moneyInputRight = el as HTMLInputElement}/>
-         <div class={'money-input__validation-error ' + ((this.moneyValue && !this.isValueValid) ? 'money-input__validation-error--active' : '' ) }>{ this.moneyValue && !this.isValueValid ? '* ' + this.moneyValidator.errorMessage : ''}</div>
+         <div class={'money-input__validation-error ' + ((this.moneyValue >= 0 && !this.isValueValid) ? 'money-input__validation-error--active' : '' ) }>{ this.moneyValue >= 0 && !this.isValueValid ? '* ' + this.moneyValidator.errorMessage : ''}</div>
       </div>
     );
   }
