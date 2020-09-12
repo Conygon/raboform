@@ -35,7 +35,7 @@ export class Form {
   render() {
     return (
       <form class="rabo-form" onSubmit={event => this.handleSubmit(event)}>
-        <rabo-money-input></rabo-money-input>
+        <rabo-money-input min={0} max={2000}></rabo-money-input>
 
         <div class="rabo-form__submit-button-wrapper">
           <button class="rabo-form__submit-button" disabled={this.disabled}>Submit</button>

@@ -10,6 +10,8 @@ export namespace Components {
     interface RaboForm {
     }
     interface RaboMoneyInput {
+        "max": number;
+        "min": number;
     }
     interface RaboRoot {
     }
@@ -43,6 +45,8 @@ declare namespace LocalJSX {
     interface RaboForm {
     }
     interface RaboMoneyInput {
+        "max"?: number;
+        "min"?: number;
         "onMoneyInputChanged"?: (event: CustomEvent<MoneyInputAmount>) => void;
     }
     interface RaboRoot {

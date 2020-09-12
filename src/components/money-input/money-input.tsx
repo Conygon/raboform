@@ -1,9 +1,18 @@
-import { Component, Event, h, Listen, State } from '@stencil/core';
+import { Component, Event, h, Listen, Prop, State } from '@stencil/core';
 import { Validator } from "../../core/interfaces/validator.interface";
-import { MoneyInputValidator } from "../../core/validators/money-input-validator.validator";
 import { MoneyInputAmount } from "../../core/interfaces/money-input.interface";
 import { EventEmitter } from "@stencil/router/dist/types/stencil.core";
+import { getMoneyInputValidator } from "../../core/validators/money-input/money-input-validator.validator";
 
+/*
+  Money input validator component. Usage:
+
+  @Event - 'moneyInputChanged' - {value:number, valid: boolean} - Gives back the amount of money that was filled in.
+  This will always return a value on change even if the value is invalid
+
+  @Prop - min - Minimum value required to be filled in
+  @Prop - max - Maximum value required to be filled in
+ */
 @Component({
   tag: 'rabo-money-input',
   styleUrl: 'money-input.css',
@@ -14,7 +23,7 @@ export class MoneyInput {
   private moneyInputLeft: HTMLInputElement;
   private moneyInputRight: HTMLInputElement;
   private moneyInputRegExp: RegExp = new RegExp(/[^0-9]/g);
-  private moneyValidator: Validator<string> = MoneyInputValidator;
+  private moneyValidator: Validator<string>;
 
   @State() leftValue: string;
   @State() rightValue: string;
@@ -22,7 +31,20 @@ export class MoneyInput {
   @State() isValueValid: boolean;
   @State() moneyValue: number;
 
+  @Prop() min: number;
+  @Prop() max: number;
+
   @Event() moneyInputChanged: EventEmitter<MoneyInputAmount>;
+
+  // When the component loads we create the validator with configured properties
+  componentWillLoad() {
+    this.moneyValidator = getMoneyInputValidator(this.min, this.max);
+  }
+
+  //Although In this example we never update the prop from code, we would need a a new validator
+  componentWillUpdate() {
+    this.moneyValidator = getMoneyInputValidator(this.min, this.max);
+  }
 
   @Listen('mouseover')
   onMouseOver() {
