@@ -11,7 +11,9 @@ describe('Money Input Validator', () => {
     {min: 0, max: 1000, value: '500.00', res: true},
     {min: 0, max: 100, value: 'aaan.50', res: false},
     {min: 0, max: 100, value: '50.aaa', res: false},
-    {min: 0, max: 100, value: 'aaaaa', res: false}
+    {min: 0, max: 100, value: 'aaaaa', res: false},
+    {min: 0, max: 100, value: null, res: false},
+    {min: 0, max: 100, value: undefined, res: false}
   ];
 
   results.forEach(test =>
