@@ -1,23 +1,22 @@
-// describe('Money Input Validator', () => {
-//
-//   let results: Array<{min: number, max: number, value: string, res: boolean}> = [
-//     {min: null, max: null, value: 'ok', res: true},
-//     {min: null, max: null, value: '', res: true},
-//     {min: null, max: 2, value: 'ok', res: true},
-//     {min: null, max: 2, value: 'okok', res: false},
-//     {min: null, max: 2, value: 'o', res: true},
-//     {min: 4, max: null, value: 'ok', res: false},
-//     {min: 4, max: null, value: 'okok', res: true},
-//     {min: 4, max: null, value: 'hello', res: true},
-//     {min: 3, max: 5, value: 'ok', res: false},
-//     {min: 3, max: 5, value: 'everyone', res: false},
-//     {min: 3, max: 5, value: 'hey', res: true},
-//     {min: 3, max: 5, value: 'hello', res: true},
-//   ];
-//
-//   results.forEach(i =>
-//     it(`Should return ${i.res} for ${i.value} with min: ${i.min} and max: ${i.max}`, () => {
-//       expect(getLengthValidator(i.min,i.max).validate(i.value)).toEqual(i.res);
-//     })
-//   );
-// });
+import { getMoneyInputValidator } from "../money-input-validator.validator";
+
+describe('Money Input Validator', () => {
+
+  let results: Array<{min: number, max: number, value: string, res: boolean}> = [
+    {min: 0, max: 100, value: '0.00', res: false},
+    {min: 0, max: 100, value: '0.01', res: true},
+    {min: 0, max: 100, value: '50.00', res: true},
+    {min: 0, max: 100, value: '99.99', res: true},
+    {min: 0, max: 100, value: '100.00', res: false},
+    {min: 0, max: 1000, value: '500.00', res: true},
+    {min: 0, max: 100, value: 'aaan.50', res: false},
+    {min: 0, max: 100, value: '50.aaa', res: false},
+    {min: 0, max: 100, value: 'aaaaa', res: false}
+  ];
+
+  results.forEach(test =>
+    it(`Should return ${test.res} for ${test.value} with min: ${test.min} and max: ${test.max}`, () => {
+      expect(getMoneyInputValidator(test.min, test.max).validate(test.value)).toEqual(test.res);
+    })
+  );
+});

@@ -11,7 +11,7 @@ describe('rabo-form', () => {
       <rabo-form>
         <mock:shadow-root>
            <form class="rabo-form">
-           <rabo-money-input></rabo-money-input>
+           <rabo-money-input max="2000" min="0"></rabo-money-input>
            <div class="rabo-form__submit-button-wrapper">
              <button class="rabo-form__submit-button" disabled="">
                Submit
