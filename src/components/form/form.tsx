@@ -28,7 +28,7 @@ export class Form {
     this.receivedFunds = this.moneyInputAmount;
 
     setTimeout(() => {
-      this.receivedFunds = null;
+      this.receivedFunds = undefined;
     }, 3000);
   }
 

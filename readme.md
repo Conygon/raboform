@@ -10,12 +10,11 @@ for the team and the type of the work we do.
 
 ## Retrospective
 
-This was a cool assignment, I did not have any experience yet with Stenciljs so this was a cool challenge.
-I timeboxed it to 6 hours max and tried to see what I could create in that time.
+This was an interesting assignment, I did not have any experience yet with Stenciljs so this was a cool challenge.
+I time-boxed it to ±6 hours max and tried to see what I could create in that time.
 
-Below I have some improvement points I see which can be made.
+## Possible Improvements
 
-## Improvements
-
-- Money Input can be made configurable for which values are allowed, this also applies to the validator
-- Some code cleanup for the flags used in money-input
+- Some better E2E testing for the form/money-input. I started on E2E testing for the form component,
+however some events/input stuff was not working as expected and I didn't want to get stuck on that.
+- Some code cleanup for the flags used in money-input to show css transitions.
