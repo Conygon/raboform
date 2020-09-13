@@ -41,7 +41,7 @@ export class Form {
           <button class="rabo-form__submit-button" disabled={this.disabled}>Submit</button>
         </div>
         {
-          this.receivedFunds ? <div class="rabo-form__thanks-message"> Thank you for the € {this.receivedFunds}</div> : ''
+          this.receivedFunds >= 0 ? <div class="rabo-form__thanks-message"> Thank you for the € {this.receivedFunds}</div> : ''
         }
       </form>
     );
