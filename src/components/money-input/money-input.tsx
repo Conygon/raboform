@@ -25,8 +25,8 @@ export class MoneyInput {
   private moneyInputRegExp: RegExp = new RegExp(/[^0-9]/g);
   private moneyValidator: Validator<string>;
 
-  @State() leftValue: string;
-  @State() rightValue: string;
+  @State() leftValue = '';
+  @State() rightValue = '';
   @State() activeElement: boolean;
   @State() isValueValid: boolean;
   @State() moneyValue: number;
@@ -94,12 +94,12 @@ export class MoneyInput {
   }
 
   autoCorrectValues() {
+    this.rightValue = this.rightValue.replace(this.moneyInputRegExp, '');
+    this.leftValue = this.leftValue.replace(this.moneyInputRegExp, '');
+
     //Automatically fills in the other number for ease of use
     if(!this.rightValue) this.rightValue = '00';
     if(!this.leftValue) this.leftValue = '0';
-
-    this.rightValue = this.rightValue.replace(this.moneyInputRegExp, '');
-    this.leftValue = this.leftValue.replace(this.moneyInputRegExp, '');
 
     while(this.leftValue.charAt(0) === '0' && this.leftValue.length > 1) {
       this.leftValue = this.leftValue.substring(1);
